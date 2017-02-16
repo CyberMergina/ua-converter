@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>minimum javascript test example</title>
+
+  <!-- 必須ライブラリ -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <!-- テストフレームワーク -->
+  <link rel="stylesheet" href="test/mocha.css" />
+  <script src="test/mocha.js"></script>
+  <script src="test/chai.js"></script>
+
+  <!-- テスト対象プログラム -->
+  <script src="ua-convert.js"></script>
+
+  <!-- テスト本体 -->
+  <script src="test/test.js"></script>
+
+
+  <!-- markdown用 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.2.2/markdown-it.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/9.1.0/styles/github.min.css" />
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $.ajax({
+        url: "./README.md",
+        type: "GET",
+        dataType: "html",
+        success: function(html){
+          var md = window.markdownit();
+          $("#target").append(md.render(html));
+        }
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <section>
+    <!-- テスト結果出力用エレメント -->
+    <div id="mocha"></div>
+
+    <!-- アプリ本体のエレメント -->
+    <div style="display:none" id="message"></div>
+  </section>
+
+  <section id="target">
+    
+  </section>
+
+
+</body>
+</html>
